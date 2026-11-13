@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Letterboxd Ratings on Hover</title>
+  <style>
+    body { margin: 0; padding: 16px; width: 340px; background: #14181c; color: #c8d4e0;
+      font: 13px/1.45 -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
+    h1 { font-size: 15px; color: #fff; margin: 0 0 12px; }
+    label { display: block; color: #fff; font-weight: 600; margin: 14px 0 4px; }
+    input { width: 100%; box-sizing: border-box; padding: 7px 8px; border-radius: 4px;
+      border: 1px solid #344250; background: #2c3440; color: #fff; font: inherit; }
+    input:focus { outline: 2px solid #40bcf4; outline-offset: -1px; }
+    label.check { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+    label.check input { width: auto; margin: 0; accent-color: #00ac1c; }
+    p.help { color: #8899aa; font-size: 12px; margin: 4px 0 0; }
+    a { color: #40bcf4; }
+    .row { display: flex; gap: 8px; align-items: center; margin-top: 16px; }
+    button { padding: 7px 14px; border: 0; border-radius: 4px; background: #00ac1c; color: #fff;
+      font: 600 13px inherit; cursor: pointer; }
+    button.secondary { background: #445566; }
+    #status { color: #00e054; font-size: 12px; }
+  </style>
+</head>
+<body>
+  <h1>Letterboxd Ratings on Hover</h1>
+  <div>Hover any film title or poster on letterboxd.com to see its ratings.</div>
+
+  <label for="omdbKey">OMDb API key (optional)</label>
+  <input id="omdbKey" type="text" placeholder="e.g. a1b2c3d4" autocomplete="off" spellcheck="false">
+  <p class="help">Used as a backup when IMDb won't serve the rating directly, and for the
+    Tomatometer when Rotten Tomatoes can't be matched. Get a free key at
+    <a href="https://www.omdbapi.com/apikey.aspx" target="_blank" rel="noopener">omdbapi.com</a>.</p>
+
+  <label class="check"><input id="showPG" type="checkbox"> Show IMDb parents guide</label>
+
+  <label for="hoverDelay">Hover delay (ms)</label>
+  <input id="hoverDelay" type="number" min="0" max="2000" step="50">
+
+  <div class="row">
+    <button id="save">Save</button>
+    <button id="clear" class="secondary">Clear cached ratings</button>
+    <span id="status"></span>
+  </div>
+  <script src="options.js"></script>
+</body>
+</html>
